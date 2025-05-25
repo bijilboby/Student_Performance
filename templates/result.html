@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        h1 { color: #2c3e50; text-align: center; }
+        .result-card { 
+            background: #f9f9f9; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-top: 20px;
+            border-left: 5px solid #3498db;
+        }
+        .grade-A { border-color: #2ecc71; }
+        .grade-B { border-color: #27ae60; }
+        .grade-C { border-color: #f39c12; }
+        .grade-D { border-color: #e67e22; }
+        .grade-F { border-color: #e74c3c; }
+        .student-info { margin-bottom: 20px; }
+        .prediction { font-size: 1.2em; margin: 15px 0; }
+        .comment { padding: 10px; background: #fff; border-radius: 4px; }
+        a { color: #3498db; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    
+    <div class="student-info">
+        <h3>Student Details:</h3>
+        <p><strong>Gender:</strong> {{ student_data.gender }}</p>
+        <p><strong>Race/Ethnicity:</strong> {{ student_data.ethnicity }}</p>
+        <p><strong>Parental Education:</strong> {{ student_data.parent_edu }}</p>
+        <p><strong>Lunch Type:</strong> {{ student_data.lunch }}</p>
+        <p><strong>Test Preparation:</strong> {{ student_data.test_prep }}</p>
+    </div>
+    
+    <div class="result-card grade-{{ grade[0] }}">
+        <div class="prediction">
+            <strong>Predicted Grade:</strong> {{ grade }}
+        </div>
+        <div class="comment">
+            <strong>Feedback:</strong> {{ comment }}
+        </div>
+        <div class="score" style="margin-top: 15px; font-size: 1.1em; color: #34495e;">
+            <strong>Predicted Score:</strong> {{ score }}
+        </div>
+    </div>
+    
+    <p style="margin-top: 20px;"><a href="/">← Predict Another Student</a></p>
+</body>
+</html>
